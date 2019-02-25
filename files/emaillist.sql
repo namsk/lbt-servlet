@@ -1,21 +1,25 @@
--- emaillist for MySQL 8.x 
-
--- DROP TABLE
 DROP TABLE emaillist;
-
--- CREATE TABLE
-CREATE TABLE IF NOT EXISTS emaillist (
-	no INT PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(20) NOT NULL,
-    last_name VARCHAR(20) NOT NULL,
-    email VARCHAR(128) NOT NULL,
-    created_at datetime NOT NULL DEFAULT now());
-
--- INSERT
+DROP SEQUENCE seq_emaillist_pk;
+-- 테이블 생성
+CREATE TABLE emaillist (
+    no number primary key,
+    last_name varchar2(20),
+    first_name varchar2(20),
+    email varchar2(128),
+    created_at date DEFAULT sysdate);
+    
+-- 시퀀스 생성
+CREATE SEQUENCE seq_emaillist_pk 
+    start with 1
+    increment by 1;
+    
+-- 데이터 입력
 INSERT INTO emaillist
-	(first_name, last_name, email)
-VALUES('승균', '남', 'skyun.nam@gmail.com');
-
--- LIST
-SELECT first_name, last_name, email 
-FROM emaillist;
+VALUES (
+    seq_emaillist_pk.nextval,
+    '남',
+    '승균',
+    'skyun.nam@gmail.com',
+    sysdate);
+    
+commit;
