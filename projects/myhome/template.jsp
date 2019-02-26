@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>My Homepage</title>
+<!-- TODO: 현재 페이지에 적절한 CSS를 임포트하십시오. -->
 <link type="text/css" 
 	rel="stylesheet" 
 	href="<%= request.getContextPath() %>/css/home.css"/>
@@ -29,7 +30,6 @@
 	<div id="footer">
       <p>Copyright(c) 2019 남승균 All rights reserved. </p>
 	</div>
-	
   </div>
 </body>
 </html>
